@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="id">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>Form Survei Sederhana</title>
+		<style>
+			:root{--bg:#f7f8fb;--card:#fff;--accent:#2b6cb0}
+			body{font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);margin:0;padding:24px;}
+			.card{max-width:720px;margin:24px auto;background:var(--card);padding:20px;border-radius:8px;box-shadow:0 6px 18px rgba(16,24,40,.08)}
+			h1{margin:0 0 8px;font-size:20px;color:#111}
+			p.lead{margin:0 0 16px;color:#444}
+			form .row{display:flex;gap:12px}
+			label{display:block;font-size:13px;color:#333;margin-bottom:6px}
+			input[type="text"],input[type="email"],select,textarea{width:100%;padding:10px;border:1px solid #d6dde6;border-radius:6px;font-size:14px}
+			.two{flex:1}
+			.actions{display:flex;gap:8px;margin-top:12px}
+			button{background:var(--accent);color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer}
+			button.secondary{background:#edf2f7;color:#1a202c}
+			.success{display:none;padding:10px;background:#e6fffa;border:1px solid #bde8df;color:#064e45;border-radius:6px;margin-top:12px}
+			.small{font-size:13px;color:#666}
+			@media(max-width:520px){.row{flex-direction:column}}
+		</style>
+	</head>
+	<body>
+		<main class="card">
+			<h1>Survei Singkat Pengguna</h1>
+			<p class="lead">Terima kasih telah meluangkan waktu. Isikan beberapa informasi singkat di bawah.</p>
+
+			<form id="surveyForm" novalidate>
+				<div class="row">
+					<div class="two">
+						<label for="name">Nama</label>
+						<input id="name" name="name" type="text" placeholder="Nama Anda" required />
+					</div>
+					<div class="two">
+						<label for="email">Email</label>
+						<input id="email" name="email" type="email" placeholder="email@contoh.com" required />
+					</div>
+				</div>
+
+				<div style="margin-top:12px">
+					<label for="age">Kelompok umur</label>
+					<select id="age" name="age">
+						<option value="">Pilih umur</option>
+						<option> &lt;18</option>
+						<option>18-24</option>
+						<option>25-34</option>
+						<option>35-44</option>
+						<option>45+</option>
+					</select>
+				</div>
+
+				<fieldset style="margin-top:12px;border:0;padding:0">
+					<legend class="small">Jenis kelamin</legend>
+					<label><input type="radio" name="gender" value="female" /> Perempuan</label>
+					<label style="margin-left:12px"><input type="radio" name="gender" value="male" /> Laki-laki</label>
+					<label style="margin-left:12px"><input type="radio" name="gender" value="other" /> Lainnya</label>
+				</fieldset>
+
+				<div style="margin-top:12px">
+					<label for="satisfaction">Seberapa puas Anda dengan layanan kami?</label>
+					<select id="satisfaction" name="satisfaction">
+						<option value="">Pilih</option>
+						<option>1 - Sangat Tidak Puas</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5 - Sangat Puas</option>
+					</select>
+				</div>
+
+				<div style="margin-top:12px">
+					<label for="feedback">Masukan (opsional)</label>
+					<textarea id="feedback" name="feedback" rows="4" placeholder="Tulis masukan singkat..."></textarea>
+				</div>
+
+				<div class="actions">
+					<button type="submit">Kirim</button>
+					<button type="reset" class="secondary">Reset</button>
+				</div>
+
+				<div id="result" class="success" role="status"></div>
+			</form>
+		</main>
+
+		<script>
+			const form = document.getElementById('surveyForm');
+			const result = document.getElementById('result');
+
+			form.addEventListener('submit', (e)=>{
+				e.preventDefault();
+				if(!form.checkValidity()){
+					form.reportValidity();
+					return;
+				}
+
+				const data = new FormData(form);
+				const obj = Object.fromEntries(data.entries());
+
+				result.textContent = 'Terima kasih, survei Anda telah dikirim.';
+				result.style.display = 'block';
+
+				// Simulasi pengiriman — di sini Anda bisa kirim ke server via fetch
+				console.log('Survey data:', obj);
+
+				// Setelah 2 detik, sembunyikan pesan dan reset form
+				setTimeout(()=>{
+					result.style.display = 'none';
+					form.reset();
+				}, 2000);
+			});
+		</script>
+	</body>
+</html>
+
