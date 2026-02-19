@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>freeCodeCamp survey Form</title>
+</head>
+<body>
+    <h1 id = "title">freeCodeCamp survey Form</h1>
+    <p id="description" >Thank you for taking the time to help us improve the platform</p>
+
+<form id="survey-form" action="https://formspree.io/f/mgolyvwa" method="POST">
+    
+    <label for="name" id = "name-label">Name</label>
+    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+    <label for="email" id="email-label">Email</label>
+    <input type="email" id="email"  name ="email" placeholder="Enter your email" required>
+    <label for ="number" id = "number-label">Age(optional)</label>
+    <input type="number" id="number" name="age" placeholder="Age" min ="10" max="99">
+
+<p>Which option best describes your current role?</p>
+<select id="dropdown">
+<option disabled selected value>Select current role</option>
+  <option disabled selected value>Select current role</option>
+                <option value="student">Student</option>
+                <option value="job">Full Time Job</option>
+                <option value="learner">Full Time Learner</option>
+                <option value="other">Other</option>
+</select>
+
+<p>Would you recommend freeCodeCamp to a friend?</p>
+
+<input type ="radio" id="definitely-option" name= "choice" value="definitely" checked>
+<label for ="definitely-option">Definitely</label>
+
+<input type ="radio" id="maybe-option" name= "choice" value="maybe">
+<label for ="maybe-option">Maybe</label>
+
+<input type ="radio" id="notsure-option" name= "choice" value="notsure">
+<label for ="notsure-option">Not Sure</label>
+
+<p>What is your favorite feature of freeCodeCamp?</p>
+<select id="dropdown">
+
+  <option disabled selected value>Select current role</option>
+                <option value="challenges">Challenges</option>
+                <option value="projects">Projects</option>
+                <option value="community">Community</option>
+                <option value="open-source">Open Source</option>
+</select>
+
+<p>What would you like to see improved? (Check all that apply)</p>
+<input type="checkbox" id="front-end" name="skill" value="front-end" />
+          <label for="front-end">Front-end Projects</label>
+
+          <input type="checkbox" id="back-end" name="skill" value="back-end" />
+          <label for="back-end">Back-end Projects</label>
+
+          <input type="checkbox" id=" data-visualization" name="skill" value="data-visualization" />
+          <label for="data-visualization"> Data Visualization</label>
+
+          <input type="checkbox" id="challenges" name="skill" value="challenges" />
+  <label for="challenges">Challenges</label>
+
+  <input type="checkbox" id="open-source" name="skill" value="open-source" />
+  <label for="open-source">Open Source Community</label>
+
+  <input type="checkbox" id="gitter-help" name="skill" value="gitter-help" />
+  <label for="gitter-help">Gitter help rooms</label>
+
+  <input type="checkbox" id="videos" name="skill" value="videos" />
+  <label for="videos">Videos</label>
+
+  <input type="checkbox" id="city-meetups" name="skill" value="city-meetups" />
+  <label for="city-meetups">City Meetups</label>
+
+  <input type="checkbox" id="wiki" name="skill" value="wiki" />
+  <label for="wiki">Wiki</label>
+
+  <input type="checkbox" id="forum" name="skill" value="forum" />
+  <label for="forum">Forum</label>
+
+  <input type="checkbox" id="additional-courses" name="skill" value="additional-courses" />
+  <label for="additional-courses">Additional Courses</label>
+
+<label for="comments">Any comments or suggestions?</label>
+        <textarea cols="30" rows="10" name="comments" id="comments" placeholder = "Enter your comment here ..."></textarea>
+
+<button type ="submit" id = "submit">Submit</button>        
+</form>
+</body>
+</html>
+
